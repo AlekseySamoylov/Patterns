@@ -4,9 +4,7 @@ import com.alekseysamoylov.patterns.observer.impl.ObserverFirst;
 import com.alekseysamoylov.patterns.observer.impl.ObserverSecond;
 import com.alekseysamoylov.patterns.observer.impl.SubjectImpl;
 
-/**
- * Created by alekseysamoylov on 8/20/17.
- */
+
 public class Main {
     public static void main(String[] args) {
         Observer observer1 = new ObserverFirst();
