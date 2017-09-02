@@ -20,3 +20,5 @@ Solution: Store different business logic in User object and use it into Statisti
 6. Proxy
 
 7. Decorator
+
+8. Template method
