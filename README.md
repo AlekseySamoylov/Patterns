@@ -22,3 +22,5 @@ Solution: Store different business logic in User object and use it into Statisti
 7. Decorator
 
 8. Template method
+
+9. Non blocking algorithm (Two implementations)
