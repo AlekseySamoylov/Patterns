@@ -5,4 +5,5 @@ package com.alekseysamoylov.patterns;
  */
 public class TestMain {
     // test 3
+    // test 4
 }
