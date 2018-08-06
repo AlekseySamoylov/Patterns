@@ -16,17 +16,25 @@ public class StopWatchProfiler {
 
   public static void main(String[] args) throws InterruptedException {
     AtomicLong atomicLong = new AtomicLong();
-    while (true) {
-      atomicLong.incrementAndGet();
-      Split split = stopwatch.start();
-      LOGGER.info("Hello ");
-      Thread.sleep(1000 + (long) (Math.random() * 100));
-      LOGGER.info("World");
-      split.stop();
-      LOGGER.info("Stopwatch {}", stopwatch);
-      if (atomicLong.incrementAndGet() == 100) {
-        break;
-      }
+    while (!monitoredMethod(atomicLong)) {
+      LOGGER.info("Hello world");
+      Split split2 = stopwatch.start();
+      monitoredMethod(atomicLong);
+      split2.stop();
+      LOGGER.info("Stopwatch 2 {}", stopwatch);
+      Split split3 = stopwatch.start();
+      monitoredMethod(atomicLong);
+      split3.stop();
+      LOGGER.info("Stopwatch 3 {}", stopwatch);
     }
+  }
+
+  private static boolean monitoredMethod(AtomicLong atomicLong) throws InterruptedException {
+    atomicLong.incrementAndGet();
+    Split split = stopwatch.start();
+    Thread.sleep(1000 + (long) (Math.random() * 100));
+    split.stop();
+    LOGGER.info("Stopwatch 1 {}", stopwatch);
+    return atomicLong.incrementAndGet() == 100;
   }
 }
