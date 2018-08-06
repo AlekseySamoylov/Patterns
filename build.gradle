@@ -1,7 +1,25 @@
 group 'com.alekseysamoylov.patterns'
 version '1.0-SNAPSHOT'
 
+
+buildscript {
+    ext {
+        kotlinVersion = '1.2.41'
+    }
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+    }
+    dependencies {
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
+        classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
+    }
+}
+
 apply plugin: 'java'
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-spring'
 
 sourceCompatibility = 1.8
 
@@ -24,5 +42,19 @@ repositories {
 }
 
 dependencies {
+
+    compile group: 'com.google.guava', name: 'guava', version: '25.1-jre'
+    compile group: 'org.javasimon', name: 'javasimon-core', version: '4.1.3'
+
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.21'
+    compile group: 'org.slf4j', name: 'jcl-over-slf4j', version: '1.7.21'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.1.7'
+    compile group: 'ch.qos.logback', name: 'logback-core', version: '1.1.7'
+    compile group: 'ch.qos.logback', name: 'logback-access', version: '1.1.7'
+
+//    compile group: 'org.javasimon', name: 'javasimon-spring', version: '4.1.3'
+//    compile group: 'org.javasimon', name: 'javasimon-console-embed', version: '4.1.3'
+    compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
+    compile("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
