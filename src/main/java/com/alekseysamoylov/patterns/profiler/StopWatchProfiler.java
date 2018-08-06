@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 public class StopWatchProfiler {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(StopWatchProfiler.class);
-  private static final Stopwatch stopwatch = SimonManager.getStopwatch("org.javasimon.examples.HelloWorld-stopwatch");
+  private static final Stopwatch stopwatch = SimonManager.getStopwatch(StopWatchProfiler.class.getName());
 
 
   public static void main(String[] args) throws InterruptedException {
